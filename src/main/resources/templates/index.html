@@ -1,163 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taskle</title>
-  <link rel="icon" href="/images/favicon.png" type="image/png"> <!-- Додайте цю строку -->
+  <link rel="icon" href="/images/favicon.png" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    <!-- 040F0F - black,
-    3CCD60 - darker green,
-    #4EA751 - light green,
-    E8E8E8 - light grey,
-    FCFFFC - white   -->
-    body {
-        background-color: #FCFFFC;
-        color: #2D3A3A;
-        font-family: 'Arial', sans-serif;
-    }
-    .navbar {
-        background-color: #FCFFFC;
-        border-bottom: 1px solid #E8E8E8;
-        padding: 10px 30px 10px 30px;
-    }
-    .navbar-brand {
-        color: #040F0F;
-        font-weight: bold;
-        font-size: 1.7rem;
-    }
-    .nav-link {
-        color: #040F0F !important;
-        font-size: 1.1rem;
-    }
-    .btn-get-started {
-        background-color: #4EA751;
-        color: #FCFFFC;
-        font-weight: bold;
-    }
-    .section-header {
-        padding: 50px 0;
-    }
-    .section-header h1 {
-        font-size: 3rem;
-        color: #040F0F;
-        font-weight: bold;
-    }
-    .section-header p {
-        font-size: 1.2rem;
-        color: #2D3A3A;
-    }
-    .description-content {
-        padding: 60px 0;
-    }
-    .description-content h2 {
-        color: #3CCD60;
-        font-size: 2.5rem;
-        font-weight: bold;
-    }
-    .description-content p {
-        color: #2D3A3A;
-        font-size: 1.1rem;
-        margin-bottom: 20px;
-    }
-    .team-collaboration-section {
-        background-color: #4EA751;
-        padding: 50px 0;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    }
-    .team-collaboration-section h2 {
-        color: #040F0F;
-        font-size: 2.5rem;
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 20px; /* Space below the heading */
-    }
-    .team-collaboration-section p {
-        font-size: 1.2rem;
-        text-align: center;
-        color: #040F0F;
-        margin: 0; /* Remove margin for better alignment */
-    }
-    footer {
-        background-color: #040F0F;
-        color: #FCFFFC;
-        padding: 30px 0;
-        text-align: center;
-    }
-  </style>
+  <link href="/css/index.css" rel="stylesheet">
 </head>
 <body>
+  <div th:replace="header :: header"></div>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="/images/task-manager-logo.png" alt="Taskle Logo" style="width: 40px; height: 40px; margin-right: 10px;">
-      Taskle
-    </a>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link btn btn-get-started" href="#">Get Started</a>
-        </li>
-      </ul>
+  <!-- Hero Section -->
+  <div class="container section-header">
+    <div class="row align-items-center">
+      <div class="col-md">
+        <h1>Manage Your Tasks Efficiently</h1>
+        <p>Welcome to Task Manager, the ultimate solution for managing your tasks with ease and precision. Our platform helps individuals and teams stay organized, meet deadlines, and achieve their goals.</p>
+        <a href="#" class="btn btn-get-started btn-lg mt-4">Get Started Now</a>
+      </div>
+      <div class="col-md">
+        <!-- Placeholder for the 3D Object from Spline -->
+        <iframe src="https://my.spline.design/noiselightscopy-2464e81779a1990cec3446767f93e3bb/" width="100%" height="500px" frameborder="0"></iframe>
+      </div>
     </div>
   </div>
-</nav>
 
-<!-- Hero Section -->
-<div class="container section-header">
-  <div class="row align-items-center">
-    <div class="col-md">
-      <h1>Manage Your Tasks Efficiently</h1>
-      <p>Welcome to Task Manager, the ultimate solution for managing your tasks with ease and precision. Our platform helps individuals and teams stay organized, meet deadlines, and achieve their goals.</p>
-      <a href="#" class="btn btn-get-started btn-lg mt-4">Get Started Now</a>
-    </div>
-    <div class="col-md">
-      <!-- Placeholder for the 3D Object from Spline -->
-      <iframe src="https://my.spline.design/noiselightscopy-2464e81779a1990cec3446767f93e3bb/" width="100%" height="500px" frameborder="0"></iframe>
-    </div>
-  </div>
-</div>
-
-<!-- Additional Information Section -->
-<div class="container description-content">
-  <div class="row">
-    <div class="col-md-4">
-      <h2>Organize</h2>
-      <p>Structure your tasks with priorities and deadlines to stay on top of your work and never miss a deadline again.</p>
-    </div>
-    <div class="col-md-4">
-      <h2>Collaborate</h2>
-      <p>Work with your team seamlessly. Assign tasks, set objectives, and track progress in real-time.</p>
-    </div>
-    <div class="col-md-4">
-      <h2>Analyze</h2>
-      <p>Get insights into your productivity with powerful analytics that help you understand your performance and improve your workflow.</p>
+  <!-- Additional Information Section -->
+  <div class="container description-content">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Organize</h2>
+        <p>Structure your tasks with priorities and deadlines to stay on top of your work and never miss a deadline again.</p>
+      </div>
+      <div class="col-md-4">
+        <h2>Collaborate</h2>
+        <p>Work with your team seamlessly. Assign tasks, set objectives, and track progress in real-time.</p>
+      </div>
+      <div class="col-md-4">
+        <h2>Analyze</h2>
+        <p>Get insights into your productivity with powerful analytics that help you understand your performance and improve your workflow.</p>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Team Collaboration Section -->
-<div class="team-collaboration-section">
-  <h2>Designed for Team Collaboration</h2>
-  <p>Our Task Manager is designed to enhance collaboration among teams, whether small or large. From startups to established organizations, Task Manager provides the tools necessary for effective communication and project management.</p>
-</div>
-
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <p>&copy; 2024 Task Manager. All rights reserved.</p>
+  <!-- Team Collaboration Section -->
+  <div class="team-collaboration-section">
+    <h2>Designed for Team Collaboration</h2>
+    <p>Our Task Manager is designed to enhance collaboration among teams, whether small or large. From startups to established organizations, Task Manager provides the tools necessary for effective communication and project management.</p>
   </div>
-</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Stats Section -->
+  <div class="container stats-section py-5">
+    <div class="row text-center">
+      <!-- Registered Users Icon -->
+      <div class="col-md-4">
+        <img src="/images/user.png" alt="Registered Users" class="stats-icon mb-3">
+        <h3><span id="userCount">0</span></h3>
+        <p>Registered Users</p>
+      </div>
+
+      <!-- Created Tasks Icon -->
+      <div class="col-md-4">
+        <img src="/images/task-created.png" alt="Created Tasks" class="stats-icon mb-3">
+        <h3><span id="taskCount">0</span></h3>
+        <p>Created Tasks</p>
+      </div>
+
+      <!-- Completed Tasks Icon -->
+      <div class="col-md-4">
+        <img src="/images/task-completed.png" alt="Completed Tasks" class="stats-icon mb-3">
+        <h3><span id="completedCount">0</span></h3>
+        <p>Completed Tasks</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Task Manager. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Функція для анімації лічильника
+    function animateCount(id, start, end, duration) {
+      let obj = document.getElementById(id);
+      let startTimestamp = null;
+      const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        obj.innerHTML = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+
+    // Дані з контролера (замініть на реальні значення)
+    const data = {
+      users: 1000,
+      tasks: 5000,
+      completed: 4500
+    };
+
+    // Intersection Observer для відстеження видимості секції
+    let observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount("userCount", 0, data.users, 3000);
+          animateCount("taskCount", 0, data.tasks, 3000);
+          animateCount("completedCount", 0, data.completed, 3000);
+          observer.disconnect(); // Отключаем наблюдатель после анимации
+        }
+      });
+    });
+
+    // Стежимо за секцією статистики
+    observer.observe(document.querySelector('.stats-section'));
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

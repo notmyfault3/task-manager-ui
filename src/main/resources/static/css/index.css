@@ -1,0 +1,123 @@
+<!-- 040F0F - black (text color),
+3CCD60 - light green (hover effect button),
+#4EA751 - darker green (get started button),
+E8E8E8 - light grey (border color),
+FCFFFC - white (background color)   -->
+body {
+    background-color: #FCFFFC;
+    color: #2D3A3A;
+    font-family: 'Arial', sans-serif;
+}
+.navbar {
+    background-color: #FCFFFC;
+    border-bottom: 1px solid #E8E8E8;
+    padding: 10px 30px;
+}
+.navbar-brand {
+    color: #040F0F;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+.navbar-brand:hover,
+.navbar-brand:focus,
+.navbar-brand:active,
+.navbar-brand:visited {
+    color: #040F0F;
+}
+
+.nav-link {
+    color: #040F0F;
+    font-size: 1.1rem;
+}
+.nav-link:hover {
+    color: #040F0F;
+    font-weight: bold;
+}
+.nav-link:focus,
+.nav-link:active,
+.nav-link:visited {
+    color: #040F0F;
+}
+.nav-item {
+    padding: 0px 5px;
+}
+
+.btn-get-started {
+    background-color: #4EA751;
+    color: #FCFFFC !important;
+    font-weight: bold;
+}
+.btn-get-started:hover {
+    background-color: #3CCD60;
+    color: #FCFFFC;
+}
+
+.section-header {
+    padding: 50px 0;
+}
+.section-header h1 {
+    font-size: 3rem;
+    color: #040F0F;
+    font-weight: bold;
+}
+.section-header p {
+    font-size: 1.2rem;
+    color: #2D3A3A;
+}
+.description-content {
+    padding: 60px 0;
+}
+.description-content h2 {
+    color: #3CCD60;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.description-content p {
+    color: #2D3A3A;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+.team-collaboration-section {
+    background-color: #4EA751;
+    padding: 50px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+.team-collaboration-section h2 {
+    color: #040F0F;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px; /* Space below the heading */
+}
+.team-collaboration-section p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #040F0F;
+    margin: 0; /* Remove margin for better alignment */
+}
+.stats-section {
+  background-color: #FCFFFC; /* світлий фон для контрасту */
+  padding: 50px 0;
+}
+
+.stats-icon {
+  width: 80px; /* Розмір іконки */
+}
+
+.stats-section h3 {
+  font-size: 2.5rem; /* Розмір цифр */
+  font-weight: bold;
+  color: #3CCD60; /* Колір цифр */
+}
+
+.stats-section p {
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+footer {
+    background-color: #040F0F;
+    color: #FCFFFC;
+    padding: 30px 0;
+    text-align: center;
+}
