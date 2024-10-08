@@ -1,0 +1,174 @@
+/* Кнопка "Create New Task" */
+.create-task-btn {
+    background-color: rgba(128, 128, 128, 0.2); /* Легший сірий фон */
+    border: 3px solid rgba(128, 128, 128, 0.6); /* Сіріший бордер */
+    color: #040F0F; /* Чорний текст */
+    font-weight: bold; /* Жирний текст */
+    padding: 10px 20px;
+    display: flex;
+    align-items: center; /* Вирівнювання іконки з текстом по вертикалі */
+    justify-content: center; /* Вирівнювання тексту по центру */
+    width: fit-content;
+    border-radius: 20px;
+    transition: background-color 0.3s, border-color 0.3s; /* Плавний ефект hover */
+}
+
+.create-task-btn:hover {
+    background-color: rgba(128, 128, 128, 0.4); /* Сильніше виділення при hover */
+    border-color: rgba(128, 128, 128, 0.8); /* Зміни бордеру при hover */
+    color: #040F0F; /* Залишити текст чорним при hover */
+}
+
+.create-task-btn .plus-icon {
+    margin-right: 5px; /* Відступ між іконкою та текстом */
+}
+
+/* Карточка завдання */
+.task-card {
+  background-color: #f2f2f2;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Додає тінь */
+  border: 2px solid #a7a7a7;
+  transition: box-shadow 0.3s ease; /* Додаємо анімацію для тіні при hover */
+}
+
+/* Зміна тіні при наведенні */
+.task-card:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Тінь стає більша при hover */
+}
+
+/* Заголовок завдання */
+.task-title {
+    font-weight: bold;
+    color: #2D3A3A;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Опис завдання */
+.task-description {
+    color: #4A4A4A;
+    white-space: normal; /* Текст буде переноситись на кілька рядків */
+    overflow: hidden; /* Приховує текст, що виходить за межі контейнера */
+    text-overflow: ellipsis; /* Додає "..." у кінці при переповненні */
+    font-size: 0.9rem; /* Зменшено шрифт */
+    display: -webkit-box; /* Забезпечує підтримку багаторядкових описів */
+    -webkit-line-clamp: 2; /* Обмежує кількість рядків */
+    -webkit-box-orient: vertical; /* Визначає напрямок для ліній */
+}
+
+/* Інформація про термін і пріоритет */
+.task-info {
+    margin-top: 10px;
+}
+
+.task-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #4A4A4A;
+}
+
+.task-info strong {
+    color: #333;
+}
+
+/* Дії над завданням */
+.task-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Кнопки */
+.task-btn-complete,
+.task-btn-modify,
+.task-btn-delete {
+    display: flex;
+    align-items: center; /* Вирівнювання по вертикалі */
+    justify-content: center; /* Вирівнювання по горизонталі */
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Плавний ефект hover */
+    height: 50px; /* Однакова висота для всіх кнопок */
+    line-height: 50px; /* Вирівнювання тексту по вертикалі */
+}
+
+/* Кнопка "Complete" */
+.task-btn-complete {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.task-btn-complete:hover {
+    background-color: #218838; /* Темніший зелений для hover */
+    border-color: #1e7e34; /* Темніший зелений для бордеру */
+    color: #fff; /* Залишити текст білим при hover */
+}
+
+/* Кнопка "Modify" */
+.task-btn-modify {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.task-btn-modify:hover {
+    background-color: #0069d9; /* Темніший синій для hover */
+    border-color: #0062cc; /* Темніший синій для бордеру */
+    color: #fff; /* Залишити текст білим при hover */
+}
+
+/* Кнопка "Delete" */
+.task-btn-delete {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    width: 50px; /* Збільшено розмір кнопки */
+    height: 50px; /* Збільшено розмір кнопки */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px; /* Заокруглені краї */
+}
+
+.task-btn-delete img {
+    width: 24px; /* Збільшена іконка */
+    height: 24px; /* Збільшена іконка */
+}
+
+.task-btn-delete:hover {
+    background-color: #c82333; /* Темніший червоний для hover */
+    border-color: #bd2130; /* Темніший червоний для бордеру */
+    color: #fff; /* Залишити текст білим при hover */
+}
+
+/* Кнопка "Complete" */
+.task-btn-complete:hover {
+    background-color: #218838; /* Темніший зелений для hover */
+    border-color: #1e7e34; /* Темніший зелений для бордеру */
+}
+
+/* Кнопка "Modify" */
+.task-btn-modify:hover {
+    background-color: #0069d9; /* Темніший синій для hover */
+    border-color: #0062cc; /* Темніший синій для бордеру */
+}
+
+/* Кнопка "Delete" */
+.task-btn-delete:hover {
+    background-color: #c82333; /* Темніший червоний для hover */
+    border-color: #bd2130; /* Темніший червоний для бордеру */
+}
+
+/* При натисканні на кнопку */
+.task-btn-complete:active,
+.task-btn-modify:active,
+.task-btn-delete:active {
+    opacity: 1;
+}
