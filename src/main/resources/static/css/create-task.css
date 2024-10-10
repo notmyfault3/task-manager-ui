@@ -1,0 +1,90 @@
+/* Основний контейнер для завдання */
+.create-task-card {
+    max-width: 900px; /* Зміщено контейнер ближче до лівого краю */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #FCFFFC;
+    min-height: 500px; /* Мінімальна висота картки */
+}
+
+/* Заголовок для завдання */
+.create-task-card h2 {
+    font-weight: bold;
+    color: #040F0F;
+}
+
+/* Стиль для всіх заголовків у формі */
+.form-label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #040F0F;
+    margin-bottom: 0.75rem;
+}
+
+/* Відступи між елементами */
+.create-task-form .form-group {
+    margin-bottom: 1.5rem; /* Більший відступ між полями вводу */
+}
+
+/* Стиль для полів вводу */
+.create-task-form .task-title {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.create-task-form .task-description {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/* Пріоритет кнопки */
+.btn-group-toggle .priority-btn {
+    border: 2px solid #727372;
+    border-radius: 10px;
+    margin: 0.5rem;
+    padding: 10px 20px;
+}
+
+.btn-group-toggle .priority-btn input[type="radio"] {
+    display: none;
+}
+
+.btn-group-toggle .priority-btn:hover {
+    background-color: #3CCD60;
+    color: #040F0F;
+}
+
+.btn-group-toggle .priority-btn.active {
+    background-color: #3CCD60;
+    color: #FCFFFC;
+}
+
+/* Для кнопки Create Task */
+.create-task-form .btn-primary {
+    background-color: #3CCD60;
+    border-color: #3CCD60;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.create-task-form .btn-primary:hover {
+    background-color: #218838;
+    color: #FCFFFC;
+}
+
+/* Поле для вводу дати */
+.create-task-form .task-due-date {
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    width: 100%;
+}

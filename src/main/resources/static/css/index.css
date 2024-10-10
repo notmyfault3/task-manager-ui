@@ -18,25 +18,18 @@ body {
     font-weight: bold;
     font-size: 1.7rem;
 }
-.navbar-brand:hover,
-.navbar-brand:focus,
-.navbar-brand:active,
-.navbar-brand:visited {
+.navbar-brand:hover {
     color: #040F0F;
+    font-weight: bold;
+    font-size: 1.7rem;
 }
 
 .nav-link {
-    color: #040F0F;
+    color: #2e2d2d;
     font-size: 1.1rem;
 }
 .nav-link:hover {
-    color: #040F0F;
-    font-weight: bold;
-}
-.nav-link:focus,
-.nav-link:active,
-.nav-link:visited {
-    color: #040F0F;
+    color: #000;
 }
 .nav-item {
     padding: 0px 5px;

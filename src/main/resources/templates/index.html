@@ -9,7 +9,7 @@
   <link href="/css/index.css" rel="stylesheet">
 </head>
 <body>
-  <div th:replace="header :: header"></div>
+  <div th:replace="~{header :: header}"></div>
 
   <!-- Hero Section -->
   <div class="container section-header">
@@ -76,12 +76,7 @@
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2024 Task Manager. All rights reserved.</p>
-    </div>
-  </footer>
+  <div th:replace="~{footer :: footer}"></div>
 
   <script>
     // Функція для анімації лічильника
