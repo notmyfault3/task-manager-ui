@@ -18,21 +18,22 @@
         <h2>Create New Task</h2>
       </div>
       <div class="card-body">
-        <form action="/submit-task" method="POST" class="create-task-form">
+        <form th:action="@{/save-task}" th:object="${task}" method="POST" class="create-task-form">
           <div class="row">
             <div class="col-md-7">
               <div class="form-group">
-                <label for="title" class="form-label">Task Title</label>
-                <input type="text" class="form-control task-title" id="title" name="title" placeholder="Enter task title" required>
+                <label for="title" class="form-label">Title</label>
+                <input type="text" id="title" th:field="*{title}" class="form-control task-title"
+                       placeholder="Enter title of the task" required>
               </div>
             </div>
             <div class="col-md-5 justify-content-end">
               <div class="form-group">
                 <label for="priority" class="form-label">Priority</label>
-                <select class="form-control" id="priority" name="priority">
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
+                <select class="form-control" id="priority" th:field="*{priority}">
+                  <option th:value="LOW">Low</option>
+                  <option th:value="MEDIUM">Medium</option>
+                  <option th:value="HIGH">High</option>
                 </select>
               </div>
             </div>
@@ -40,21 +41,21 @@
           <div class="row">
             <div class="col-md-7">
               <div class="form-group">
-                <label for="description" class="form-label">Task Description</label>
-                <textarea class="form-control task-description" id="description" name="description" rows="8" placeholder="Enter task description"></textarea>
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control task-description" id="description" th:field="*{description}"
+                          rows="8" placeholder="Enter description of the task"></textarea>
               </div>
             </div>
             <div class="col-sm-5 mt-5">
               <div class="form-group">
                 <label for="dueDate" class="form-label">Due Date</label>
-                <input type="datetime-local" class="form-control task-due-date" id="dueDate" name="dueDate" required>
+                <input type="datetime-local" class="form-control task-due-date" id="dueDate" th:field="*{dueDate}" required>
               </div>
               <div class="text-center mt-5">
                 <button type="submit" class="btn btn-primary">Create Task</button>
               </div>
             </div>
           </div>
-
         </form>
       </div>
     </div>

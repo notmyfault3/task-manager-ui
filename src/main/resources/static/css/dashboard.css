@@ -59,7 +59,7 @@
     text-overflow: ellipsis; /* Додає "..." у кінці при переповненні */
     font-size: 0.9rem; /* Зменшено шрифт */
     display: -webkit-box; /* Забезпечує підтримку багаторядкових описів */
-    -webkit-line-clamp: 2; /* Обмежує кількість рядків */
+    -webkit-line-clamp: 1; /* Обмежує кількість рядків */
     -webkit-box-orient: vertical; /* Визначає напрямок для ліній */
 }
 

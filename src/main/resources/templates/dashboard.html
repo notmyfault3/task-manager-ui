@@ -36,21 +36,20 @@
   <div class="container mt-4">
     <div class="row">
       <!-- Завдання 1 -->
-      <div class="col-md-3">
+      <div th:each="task : ${tasks}" class="col-md-3">
         <div class="task-card">
-          <h5 class="task-title">Implement New Feature</h5>
+          <h5 th:text="${task.title}" class="task-title"></h5>
           <hr>
           <div class="task-info">
             <p><strong>Description:</strong></p>
-            <p class="task-description">This task is about implementing a new feature in the project.
-              It should be done within the next two weeks. Make sure to</p>
+            <p th:text="${task.description}" class="task-description"></p>
           </div>
           <hr>
 
           <!-- Інформація про термін та пріоритет -->
           <div class="task-info">
-            <p><strong>Due date:</strong> <span class="task-due-date">October 20, 2024</span></p>
-            <p><strong>Priority:</strong> <span class="task-priority">High</span></p>
+            <p><strong>Due date:</strong> <span th:text="${task.dueDate}" class="task-due-date"></span></p>
+            <p><strong>Priority:</strong> <span th:text="${task.priority}" class="task-priority"></span></p>
           </div>
 
           <hr>
@@ -63,37 +62,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Завдання 2 -->
-      <div class="col-md-3">
-        <div class="task-card">
-          <h5 class="task-title">Implement New Feature</h5>
-          <hr>
-          <div class="task-info">
-            <p><strong>Description:</strong></p>
-            <p class="task-description">This task is about implementing a new feature in the project.
-              It should be done within the next two weeks. Make sure to</p>
-          </div>
-          <hr>
-
-          <!-- Інформація про термін та пріоритет -->
-          <div class="task-info">
-            <p><strong>Due date:</strong> <span class="task-due-date">October 20, 2024</span></p>
-            <p><strong>Priority:</strong> <span class="task-priority">High</span></p>
-          </div>
-
-          <hr>
-          <div class="task-actions">
-            <a href="#" class="task-btn-complete">Complete</a>
-            <a href="#" class="task-btn-modify">Modify</a>
-            <a href="#" class="task-btn-delete">
-              <img src="/images/trash.png" alt="Delete">
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Інші завдання... -->
     </div>
   </div>
 
