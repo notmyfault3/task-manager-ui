@@ -35,7 +35,6 @@
   <!-- Відображення завдань -->
   <div class="container mt-4">
     <div class="row">
-      <!-- Завдання 1 -->
       <div th:each="task : ${tasks}" class="col-md-3">
         <div class="task-card">
           <h5 th:text="${task.title}" class="task-title"></h5>
@@ -48,8 +47,18 @@
 
           <!-- Інформація про термін та пріоритет -->
           <div class="task-info">
-            <p><strong>Due date:</strong> <span th:text="${task.dueDate}" class="task-due-date"></span></p>
-            <p><strong>Priority:</strong> <span th:text="${task.priority}" class="task-priority"></span></p>
+            <p>
+              <strong>Due date:</strong>
+              <span th:text="${#temporals.format(task.dueDate, 'yyyy/MM/dd HH:mm')}" class="task-due-date"></span>
+            </p>
+            <p>
+              <strong>Priority:</strong>
+              <span th:switch="${task.priority.name()}">
+                <span th:case="'LOW'" th:text="${task.priority.toDisplayName()}" class="task-priority-low"></span>
+                <span th:case="'MEDIUM'" th:text="${task.priority.toDisplayName()}" class="task-priority-medium"></span>
+                <span th:case="'HIGH'" th:text="${task.priority.toDisplayName()}" class="task-priority-high"></span>
+              </span>
+            </p>
           </div>
 
           <hr>

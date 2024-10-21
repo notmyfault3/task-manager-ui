@@ -31,9 +31,9 @@
               <div class="form-group">
                 <label for="priority" class="form-label">Priority</label>
                 <select class="form-control" id="priority" th:field="*{priority}">
-                  <option th:value="LOW">Low</option>
-                  <option th:value="MEDIUM">Medium</option>
-                  <option th:value="HIGH">High</option>
+                  <option th:each="priority : ${priorities}"
+                          th:value="${priority}"
+                          th:text="${priority.toDisplayName()}"></option>
                 </select>
               </div>
             </div>
