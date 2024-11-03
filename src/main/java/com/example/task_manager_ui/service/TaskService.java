@@ -1,10 +1,12 @@
 package com.example.task_manager_ui.service;
 
 import com.example.task_manager_ui.entity.Task;
+import com.example.task_manager_ui.enums.Priority;
 import com.example.task_manager_ui.enums.Status;
 import com.example.task_manager_ui.model.TaskDto;
 import com.example.task_manager_ui.repository.TaskRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +20,7 @@ public class TaskService {
     public TaskDto saveTask(TaskDto taskDto) {
         Task task = new Task();
 
+        task.setId(taskDto.getId());
         task.setTitle(taskDto.getTitle());
         task.setDescription(taskDto.getDescription());
         task.setStatus(Status.NEW);
@@ -35,8 +38,32 @@ public class TaskService {
                 .toList();
     }
 
+    public List<TaskDto> findSortedTasks(String priority, String direction) {
+        String dueDate = "dueDate";
+        Sort sort = Sort.by(Sort.Direction.fromString(direction), dueDate);
+
+        if (priority != null) {
+            Priority enumPriority = Priority.valueOf(priority.toUpperCase());
+
+            return taskRepository.findByStatus(Status.NEW, enumPriority, sort).stream()
+                    .map(this::convertToDto)
+                    .toList();
+        }
+
+        return taskRepository.findByStatus(Status.NEW, sort).stream()
+                .map(this::convertToDto)
+                .toList();
+    }
+
+    public void changeStatusToComplete(long id) {
+        Task task = taskRepository.findById(id).get();
+
+        task.setStatus(Status.COMPLETED);
+    }
+
     private TaskDto convertToDto(Task task) {
         return new TaskDto(
+                task.getId(),
                 task.getTitle(),
                 task.getDescription(),
                 task.getPriority(),

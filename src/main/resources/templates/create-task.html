@@ -18,7 +18,7 @@
         <h2>Create New Task</h2>
       </div>
       <div class="card-body">
-        <form th:action="@{/save-task}" th:object="${task}" method="POST" class="create-task-form">
+        <form th:action="@{/tasks/save-task}" th:object="${task}" method="POST" class="create-task-form">
           <div class="row">
             <div class="col-md-7">
               <div class="form-group">

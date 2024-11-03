@@ -178,3 +178,106 @@
     width: 20px;
     height: 20px;
 }
+
+/* Контейнер для фільтрів */
+.filter-section {
+  display: flex;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-label {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #f5f5f5;
+}
+
+/* Стилі для форми */
+.filter-form {
+  background-color: #404040;
+  border-radius: 20px;
+  border: 3px solid #333;
+  padding: 20px;
+  max-width: 600px;
+}
+
+/* Кнопки фільтрації */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Сховати радіо-кнопки */
+.filter-buttons input[type="radio"] {
+  display: none;
+}
+
+/* Стилізація кнопок */
+.filter-btn {
+  background-color: #333;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #e0e0e0;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Змінюємо фон для активних кнопок */
+.filter-buttons input[type="radio"]:checked + .filter-btn {
+  background-color: #4A90E2;
+  border-color: #357ABD;
+  color: white;
+}
+
+/* Hover ефект для всіх кнопок */
+.filter-btn:hover {
+  background-color: #555;
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* Активні кнопки при натисканні */
+.filter-btn:active {
+  background-color: #666;
+  border-color: #888;
+}
+
+/* Стиль для кнопки Filter */
+.filter-submit-btn {
+  background-color: #333;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 12px;
+  transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Hover ефект для кнопки Filter */
+.filter-submit-btn:hover {
+  background-color: #555;
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+/* Активна кнопка при натисканні */
+.filter-submit-btn:active {
+  background-color: #666;
+  border-color: rgba(255, 255, 255, 0.7);
+  transform: scale(0.98);
+}

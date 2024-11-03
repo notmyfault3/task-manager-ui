@@ -6,12 +6,11 @@ import com.example.task_manager_ui.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/tasks")
 public class TaskController {
 
     private final TaskService taskService;
@@ -26,6 +25,7 @@ public class TaskController {
     @PostMapping("/save-task")
     public String saveTask(@ModelAttribute(name = "task") TaskDto taskDto) {
         TaskDto savedTask = taskService.saveTask(taskDto);
-        return "redirect:/create-task";
+        return "redirect:/tasks/create-task";
     }
+
 }
