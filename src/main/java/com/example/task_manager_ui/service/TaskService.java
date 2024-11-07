@@ -32,6 +32,12 @@ public class TaskService {
         return convertToDto(savedTask);
     }
 
+    public TaskDto findTaskById(long id) {
+        Task task = taskRepository.findById(id).get();
+
+        return convertToDto(task);
+    }
+
     public List<TaskDto> findAllTasks() {
         return taskRepository.findAll().stream()
                 .map(this::convertToDto)
@@ -45,7 +51,7 @@ public class TaskService {
         if (priority != null) {
             Priority enumPriority = Priority.valueOf(priority.toUpperCase());
 
-            return taskRepository.findByStatus(Status.NEW, enumPriority, sort).stream()
+            return taskRepository.findByStatusAndPriority(Status.NEW, enumPriority, sort).stream()
                     .map(this::convertToDto)
                     .toList();
         }
@@ -59,6 +65,11 @@ public class TaskService {
         Task task = taskRepository.findById(id).get();
 
         task.setStatus(Status.COMPLETED);
+        Task savedTask = taskRepository.save(task);
+    }
+
+    public void deleteTaskById(long id) {
+        taskRepository.deleteById(id);
     }
 
     private TaskDto convertToDto(Task task) {

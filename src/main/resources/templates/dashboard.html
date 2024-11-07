@@ -100,9 +100,9 @@
 
           <hr>
           <div class="task-actions">
-            <a href="#" class="task-btn-complete">Complete</a>
-            <a href="#" class="task-btn-modify">Modify</a>
-            <a href="#" class="task-btn-delete">
+            <a th:href="@{/tasks/{id}/complete(id=${task.id})}" class="task-btn-complete">Complete</a>
+            <a th:href="@{/tasks/{id}/modify(id=${task.id})}" class="task-btn-modify">Modify</a>
+            <a th:href="@{/tasks/{id}/delete(id=${task.id})}" class="task-btn-delete">
               <img src="/images/trash.png" alt="Delete" class="icon-delete">
             </a>
           </div>
