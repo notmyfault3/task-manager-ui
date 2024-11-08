@@ -2,6 +2,7 @@ package com.example.task_manager_ui.controller;
 
 import com.example.task_manager_ui.model.TaskDto;
 import com.example.task_manager_ui.service.TaskService;
+import com.example.task_manager_ui.utils.DateTimeHelper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -29,8 +30,8 @@ public class DashboardController {
             previousPath.append("?%s".formatted(request.getQueryString()));
         }
         session.setAttribute("previousPath", previousPath.toString());
-        List<TaskDto> tasks = taskService.findSortedTasks(priority, direction);
 
+        List<TaskDto> tasks = taskService.findSortedTasks(priority, direction);
         model.addAttribute("tasks", tasks);
 
         return "dashboard";

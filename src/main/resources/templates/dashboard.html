@@ -26,7 +26,7 @@
 
   <!-- Кнопка "Create New Task" як посилання -->
   <div class="container mt-4">
-    <a th:href="@{/tasks/create-task}" class="create-task-btn">
+    <a th:href="@{/tasks/task-form}" class="create-task-btn">
       <span class="plus-icon">+</span> Create New Task
     </a>
     <hr>
@@ -74,7 +74,10 @@
     <div class="row">
       <div th:each="task : ${tasks}" class="col-md-3">
         <div class="task-card">
-          <h5 th:text="${task.title}" class="task-title"></h5>
+          <div class="task-header">
+            <h5 th:text="${task.title}" class="task-title"></h5>
+            <span class="task-time" th:text="${#temporals.format(task.dueDate, 'HH:mm')}"></span>
+          </div>
           <hr>
           <div class="task-info">
             <p><strong>Description:</strong></p>
@@ -85,8 +88,10 @@
           <!-- Інформація про термін та пріоритет -->
           <div class="task-info">
             <p>
-              <strong>Due date:</strong>
-              <span th:text="${#temporals.format(task.dueDate, 'yyyy/MM/dd HH:mm')}" class="task-due-date"></span>
+              <strong>
+                Time left:
+                <span th:text="${task.daysRemaining + ' day' + ((task.daysRemaining != 1) ? 's' : '')}" class="task-due-date"></span>
+              </strong>
             </p>
             <p>
               <strong>Priority:</strong>

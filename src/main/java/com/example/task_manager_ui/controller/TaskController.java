@@ -16,7 +16,7 @@ public class TaskController {
 
     private final TaskService taskService;
 
-    @GetMapping("/create-task")
+    @GetMapping("/task-form")
     public String createNewTaskPage(Model model) {
         model.addAttribute("task", new TaskDto());
 

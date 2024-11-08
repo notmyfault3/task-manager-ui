@@ -5,9 +5,11 @@ import com.example.task_manager_ui.enums.Priority;
 import com.example.task_manager_ui.enums.Status;
 import com.example.task_manager_ui.model.TaskDto;
 import com.example.task_manager_ui.repository.TaskRepository;
+import com.example.task_manager_ui.utils.DateTimeHelper;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.util.DateUtils;
 
 import java.util.List;
 
@@ -78,7 +80,8 @@ public class TaskService {
                 task.getTitle(),
                 task.getDescription(),
                 task.getPriority(),
-                task.getDueDate()
+                task.getDueDate(),
+                DateTimeHelper.calculateRemainingDays(task.getDueDate())
         );
     }
 }

@@ -23,4 +23,6 @@ public class TaskDto {
     private Priority priority;
 
     private LocalDateTime dueDate;
+
+    private long daysRemaining;
 }

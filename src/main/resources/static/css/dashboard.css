@@ -45,6 +45,7 @@
 
 /* Заголовок завдання */
 .task-title {
+    margin-right: 10px;
     font-weight: bold;
     color: #2D3A3A;
     white-space: nowrap;
@@ -280,4 +281,25 @@
   background-color: #666;
   border-color: rgba(255, 255, 255, 0.7);
   transform: scale(0.98);
+}
+
+.task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-time {
+    background-color: #555;
+    color: #fff;
+    border-radius: 12px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 50px;
+    text-align: center;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
