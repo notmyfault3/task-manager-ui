@@ -9,7 +9,6 @@ import com.example.task_manager_ui.utils.DateTimeHelper;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.util.DateUtils;
 
 import java.util.List;
 

@@ -9,113 +9,119 @@
   <link href="/css/index.css" rel="stylesheet">
 </head>
 <body>
-  <div th:replace="~{header :: header}"></div>
+<div th:replace="~{header :: header}"></div>
 
-  <!-- Hero Section -->
-  <div class="container section-header">
-    <div class="row align-items-center">
-      <div class="col-md">
-        <h1>Manage Your Tasks Efficiently</h1>
-        <p>Welcome to Task Manager, the ultimate solution for managing your tasks with ease and precision. Our platform helps individuals and teams stay organized, meet deadlines, and achieve their goals.</p>
-        <a href="#" class="btn btn-get-started btn-lg mt-4">Get Started Now</a>
-      </div>
-      <div class="col-md">
-        <!-- Placeholder for the 3D Object from Spline -->
-        <iframe src="https://my.spline.design/noiselightscopy-2464e81779a1990cec3446767f93e3bb/" width="100%" height="500px" frameborder="0"></iframe>
-      </div>
+<!-- Hero Section -->
+<div class="container section-header">
+  <div class="row align-items-center">
+    <div class="col-md">
+      <h1>Manage Your Tasks Efficiently</h1>
+      <p>Welcome to Task Manager, the ultimate solution for managing your tasks with ease and precision. Our platform
+        helps individuals and teams stay organized, meet deadlines, and achieve their goals.</p>
+      <a href="#" class="btn btn-get-started btn-lg mt-4">Get Started Now</a>
+    </div>
+    <div class="col-md">
+      <!-- Placeholder for the 3D Object from Spline -->
+      <iframe src="https://my.spline.design/noiselightscopy-2464e81779a1990cec3446767f93e3bb/" width="100%"
+              height="500px" frameborder="0"></iframe>
     </div>
   </div>
+</div>
 
-  <!-- Additional Information Section -->
-  <div class="container description-content">
-    <div class="row">
-      <div class="col-md-4">
-        <h2>Organize</h2>
-        <p>Structure your tasks with priorities and deadlines to stay on top of your work and never miss a deadline again.</p>
-      </div>
-      <div class="col-md-4">
-        <h2>Collaborate</h2>
-        <p>Work with your team seamlessly. Assign tasks, set objectives, and track progress in real-time.</p>
-      </div>
-      <div class="col-md-4">
-        <h2>Analyze</h2>
-        <p>Get insights into your productivity with powerful analytics that help you understand your performance and improve your workflow.</p>
-      </div>
+<!-- Additional Information Section -->
+<div class="container description-content">
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Organize</h2>
+      <p>Structure your tasks with priorities and deadlines to stay on top of your work and never miss a deadline
+        again.</p>
+    </div>
+    <div class="col-md-4">
+      <h2>Collaborate</h2>
+      <p>Work with your team seamlessly. Assign tasks, set objectives, and track progress in real-time.</p>
+    </div>
+    <div class="col-md-4">
+      <h2>Analyze</h2>
+      <p>Get insights into your productivity with powerful analytics that help you understand your performance and
+        improve your workflow.</p>
     </div>
   </div>
+</div>
 
-  <!-- Team Collaboration Section -->
-  <div class="team-collaboration-section">
-    <h2>Designed for Team Collaboration</h2>
-    <p>Our Task Manager is designed to enhance collaboration among teams, whether small or large. From startups to established organizations, Task Manager provides the tools necessary for effective communication and project management.</p>
-  </div>
+<!-- Team Collaboration Section -->
+<div class="team-collaboration-section">
+  <h2>Designed for Team Collaboration</h2>
+  <p>Our Task Manager is designed to enhance collaboration among teams, whether small or large. From startups to
+    established organizations, Task Manager provides the tools necessary for effective communication and project
+    management.</p>
+</div>
 
-  <!-- Stats Section -->
-  <div class="container stats-section py-5">
-    <div class="row text-center">
-      <!-- Registered Users Icon -->
-      <div class="col-md-4">
-        <img src="/images/user.png" alt="Registered Users" class="stats-icon mb-3">
-        <h3><span id="userCount">0</span></h3>
-        <p>Registered Users</p>
-      </div>
+<!-- Stats Section -->
+<div class="container stats-section py-5">
+  <div class="row text-center">
+    <!-- Registered Users Icon -->
+    <div class="col-md-4">
+      <img src="/images/user.png" alt="Registered Users" class="stats-icon mb-3">
+      <h3><span id="userCount">0</span></h3>
+      <p>Registered Users</p>
+    </div>
 
-      <!-- Created Tasks Icon -->
-      <div class="col-md-4">
-        <img src="/images/task-created.png" alt="Created Tasks" class="stats-icon mb-3">
-        <h3><span id="taskCount">0</span></h3>
-        <p>Created Tasks</p>
-      </div>
+    <!-- Created Tasks Icon -->
+    <div class="col-md-4">
+      <img src="/images/task-created.png" alt="Created Tasks" class="stats-icon mb-3">
+      <h3><span id="taskCount">0</span></h3>
+      <p>Created Tasks</p>
+    </div>
 
-      <!-- Completed Tasks Icon -->
-      <div class="col-md-4">
-        <img src="/images/task-completed.png" alt="Completed Tasks" class="stats-icon mb-3">
-        <h3><span id="completedCount">0</span></h3>
-        <p>Completed Tasks</p>
-      </div>
+    <!-- Completed Tasks Icon -->
+    <div class="col-md-4">
+      <img src="/images/task-completed.png" alt="Completed Tasks" class="stats-icon mb-3">
+      <h3><span id="completedCount">0</span></h3>
+      <p>Completed Tasks</p>
     </div>
   </div>
+</div>
 
-  <div th:replace="~{footer :: footer}"></div>
+<div th:replace="~{footer :: footer}"></div>
 
-  <script>
-    // Функція для анімації лічильника
-    function animateCount(id, start, end, duration) {
-      let obj = document.getElementById(id);
-      let startTimestamp = null;
-      const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        obj.innerHTML = Math.floor(progress * (end - start) + start);
-        if (progress < 1) {
-          window.requestAnimationFrame(step);
-        }
-      };
-      window.requestAnimationFrame(step);
-    }
-
-    // Дані з контролера (замініть на реальні значення)
-    const data = {
-      users: 1000,
-      tasks: 5000,
-      completed: 4500
+<script>
+  // Функція для анімації лічильника
+  function animateCount(id, start, end, duration) {
+    let obj = document.getElementById(id);
+    let startTimestamp = null;
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      obj.innerHTML = Math.floor(progress * (end - start) + start);
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      }
     };
+    window.requestAnimationFrame(step);
+  }
 
-    // Intersection Observer для відстеження видимості секції
-    let observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCount("userCount", 0, data.users, 3000);
-          animateCount("taskCount", 0, data.tasks, 3000);
-          animateCount("completedCount", 0, data.completed, 3000);
-          observer.disconnect(); // Отключаем наблюдатель после анимации
-        }
-      });
+  // Дані з контролера (замініть на реальні значення)
+  const data = {
+    users: 1000,
+    tasks: 5000,
+    completed: 4500
+  };
+
+  // Intersection Observer для відстеження видимості секції
+  let observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCount("userCount", 0, data.users, 3000);
+        animateCount("taskCount", 0, data.tasks, 3000);
+        animateCount("completedCount", 0, data.completed, 3000);
+        observer.disconnect(); // Отключаем наблюдатель после анимации
+      }
     });
+  });
 
-    // Стежимо за секцією статистики
-    observer.observe(document.querySelector('.stats-section'));
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+  // Стежимо за секцією статистики
+  observer.observe(document.querySelector('.stats-section'));
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

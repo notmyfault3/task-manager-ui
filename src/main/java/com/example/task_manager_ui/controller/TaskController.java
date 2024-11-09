@@ -1,6 +1,5 @@
 package com.example.task_manager_ui.controller;
 
-import com.example.task_manager_ui.enums.Priority;
 import com.example.task_manager_ui.model.TaskDto;
 import com.example.task_manager_ui.service.TaskService;
 import jakarta.servlet.http.HttpSession;
