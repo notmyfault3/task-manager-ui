@@ -8,17 +8,19 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/dashboard")
 public class DashboardController {
 
     private final TaskService taskService;
 
-    @GetMapping("/dashboard")
+    @GetMapping
     public String getDashboardTasks(
             @RequestParam(value = "priority", required = false) String priority,
             @RequestParam(value = "direction", required = false, defaultValue = "asc") String direction,
@@ -36,4 +38,12 @@ public class DashboardController {
         return "dashboard";
     }
 
+    @GetMapping("/search")
+    public String searchTasksByTitle(@RequestParam("query") String query, Model model) {
+        List<TaskDto> foundTasks = taskService.findTasksByTitle(query);
+
+        model.addAttribute("tasks", foundTasks);
+
+        return "dashboard";
+    }
 }

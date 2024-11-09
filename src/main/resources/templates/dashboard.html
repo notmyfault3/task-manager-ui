@@ -13,13 +13,13 @@
 <div th:replace="~{header :: header}"></div>
 
 <!-- Опис сторінки -->
-<div class="container mt-3">
-  <div class="task-page-description">
+<div class="container mt-5">
+  <div class="task-page-description text-center">
     <h3>Welcome to Your Task Dashboard!</h3>
-    <p>
-      Here you can manage all your tasks efficiently. Create new tasks by clicking the "Create New Task" button,
-      or view and track the progress of your existing tasks below. Stay on top of your to-do list and complete
-      tasks on time with Taskle!
+    <p class="lead">
+      Stay on top of your tasks and manage your projects with ease. Create new tasks,
+      track their progress, and stay productive.
+      With Taskle, keeping organized has never been easier!
     </p>
   </div>
 </div>
@@ -27,13 +27,22 @@
 <!-- Кнопка "Create New Task" як посилання -->
 <div class="container mt-4">
   <a class="create-task-btn" th:href="@{/tasks/task-form}">
-    <span class="plus-icon">+</span> Create New Task
+    <span class="plus-icon">+</span>Create Task
   </a>
   <hr>
 </div>
 
+<div class="search-container">
+  <form th:action="@{/dashboard/search}" method="GET">
+    <input type="text" class="search-input" placeholder="Search tasks..." name="query">
+    <button type="submit" class="search-btn">
+      <img src="/images/search-icon.png" alt="Search" class="search-icon">
+    </button>
+  </form>
+</div>
+
 <div class="container d-flex justify-content-start">
-  <form class="filter-form p-4" th:action="@{/dashboard}" method="get">
+  <form class="filter-form p-4" th:action="@{/dashboard}" method="GET">
     <div class="row justify-content-between align-items-center">
       <!-- Priority Filter -->
       <div class="col-md-6">
@@ -115,6 +124,10 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="no-tasks-message" th:if="${#lists.isEmpty(tasks)}">
+  <p>No tasks found. Try adjusting your search or create a new task.</p>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>

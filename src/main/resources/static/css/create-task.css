@@ -1,10 +1,10 @@
 /* Основний контейнер для завдання */
 .create-task-card {
-    max-width: 900px; /* Зміщено контейнер ближче до лівого краю */
+    max-width: 900px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     background-color: #FCFFFC;
-    min-height: 500px; /* Мінімальна висота картки */
+    min-height: 500px;
 }
 
 /* Заголовок для завдання */
@@ -23,7 +23,7 @@
 
 /* Відступи між елементами */
 .create-task-form .form-group {
-    margin-bottom: 1.5rem; /* Більший відступ між полями вводу */
+    margin-bottom: 1.5rem;
 }
 
 /* Стиль для полів вводу */

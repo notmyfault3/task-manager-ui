@@ -1,46 +1,59 @@
 /* Кнопка "Create New Task" */
 .create-task-btn {
-    background-color: rgba(128, 128, 128, 0.2); /* Легший сірий фон */
-    border: 3px solid rgba(128, 128, 128, 0.6); /* Сіріший бордер */
-    color: #040F0F; /* Чорний текст */
-    font-weight: bold; /* Жирний текст */
-    padding: 10px 20px;
-    display: flex;
-    align-items: center; /* Вирівнювання іконки з текстом по вертикалі */
-    justify-content: center; /* Вирівнювання тексту по центру */
-    width: fit-content;
-    border-radius: 20px;
-    transition: background-color 0.3s, border-color 0.3s; /* Плавний ефект hover */
-    text-decoration: none; /* Видаляємо підкреслення */
+    background-color: #28a745;
+    border: 3px solid #218838;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
 .create-task-btn:hover {
-    background-color: rgba(128, 128, 128, 0.4); /* Сильніше виділення при hover */
-    border-color: rgba(128, 128, 128, 0.8); /* Зміни бордеру при hover */
-    color: #040F0F; /* Залишити текст чорним при hover */
-    text-decoration: none; /* Видаляємо підкреслення при hover */
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.create-task-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 .create-task-btn .plus-icon {
-    margin-right: 5px; /* Відступ між іконкою та текстом */
+    font-size: 1.5rem;
+    margin-right: 10px;
+    display: inline-block;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.create-task-btn:hover .plus-icon {
+    transform: rotate(0deg);
 }
 
 /* Карточка завдання */
 .task-card {
   background-color: #f2f2f2;
-  backdrop-filter: blur(10px); /* Ефект розмиття, що створює скляний вигляд */
+  backdrop-filter: blur(10px);
   padding: 15px;
   border-radius: 15px;
   margin-bottom: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Додає тінь */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   border: 3px solid #a7a7a7;
-  transition: box-shadow 0.3s ease; /* Додаємо анімацію для тіні при hover */
+  transition: box-shadow 0.3s ease;
 }
 
 /* Зміна тіні при наведенні */
 .task-card:hover {
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Тінь стає більша при hover */
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Заголовок завдання */
@@ -56,13 +69,13 @@
 /* Опис завдання */
 .task-description {
     color: #4A4A4A;
-    white-space: normal; /* Текст буде переноситись на кілька рядків */
-    overflow: hidden; /* Приховує текст, що виходить за межі контейнера */
-    text-overflow: ellipsis; /* Додає "..." у кінці при переповненні */
-    font-size: 0.9rem; /* Зменшено шрифт */
-    display: -webkit-box; /* Забезпечує підтримку багаторядкових описів */
-    -webkit-line-clamp: 1; /* Обмежує кількість рядків */
-    -webkit-box-orient: vertical; /* Визначає напрямок для ліній */
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 /* Інформація про термін і пріоритет */
@@ -302,4 +315,80 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Центрування контейнера */
+.search-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Відступ зверху */
+    margin-bottom: 20px; /* Відступ знизу */
+}
+
+/* Пошукове поле */
+.search-input {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 2px solid rgba(128, 128, 128, 0.6);
+    border-radius: 20px;
+    width: 500px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Зміна бордера при фокусі */
+.search-input:focus {
+    border-color: rgba(0, 123, 255, 0.8);
+}
+
+/* Кнопка пошуку */
+.search-btn {
+    background-color: rgba(128, 128, 128, 0.2);
+    border: 3px solid rgba(128, 128, 128, 0.6);
+    color: #040F0F;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    transition: background-color 0.3s, border-color 0.3s;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-btn:hover {
+    background-color: rgba(128, 128, 128, 0.4);
+    border-color: rgba(128, 128, 128, 0.8);
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.no-tasks-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    text-align: center;
+    color: #6c757d;
+    font-size: 1.5rem;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.no-tasks-message p {
+    margin: 0;
+}
+
+.no-tasks-message:before {
+    content: "🔍";
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
 }

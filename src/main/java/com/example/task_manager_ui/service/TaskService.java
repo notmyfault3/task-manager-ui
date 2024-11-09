@@ -17,6 +17,7 @@ import java.util.List;
 public class TaskService {
 
     private final TaskRepository taskRepository;
+    private final String dueDate = "dueDate";
 
     public TaskDto saveTask(TaskDto taskDto) {
         Task task = new Task();
@@ -45,8 +46,18 @@ public class TaskService {
                 .toList();
     }
 
+    public void changeStatusToComplete(long id) {
+        Task task = taskRepository.findById(id).get();
+
+        task.setStatus(Status.COMPLETED);
+        Task savedTask = taskRepository.save(task);
+    }
+
+    public void deleteTaskById(long id) {
+        taskRepository.deleteById(id);
+    }
+
     public List<TaskDto> findSortedTasks(String priority, String direction) {
-        String dueDate = "dueDate";
         Sort sort = Sort.by(Sort.Direction.fromString(direction), dueDate);
 
         if (priority != null) {
@@ -62,15 +73,13 @@ public class TaskService {
                 .toList();
     }
 
-    public void changeStatusToComplete(long id) {
-        Task task = taskRepository.findById(id).get();
+    public List<TaskDto> findTasksByTitle(String query) {
+        Sort sort = Sort.by(Sort.Direction.fromString("asc"), dueDate);
+        List<Task> foundTasks = taskRepository.findByStatusAndTitleStartsWithIgnoreCase(Status.NEW, query, sort);
 
-        task.setStatus(Status.COMPLETED);
-        Task savedTask = taskRepository.save(task);
-    }
-
-    public void deleteTaskById(long id) {
-        taskRepository.deleteById(id);
+        return foundTasks.stream()
+                .map(this::convertToDto)
+                .toList();
     }
 
     private TaskDto convertToDto(Task task) {
