@@ -88,3 +88,41 @@
     border: 1px solid #ccc;
     width: 100%;
 }
+
+.error-list {
+    position: fixed;
+    top: 85px;
+    right: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    z-index: 9999;
+}
+
+.error-message {
+    background-color: rgba(230, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid rgba(153, 0, 51, 0.6);
+    margin-bottom: 5px;
+    opacity: 0;
+    transform: translateY(-20px);
+    font-weight: bold;
+    font-size: 1rem;
+    animation: slideDown 10s forwards;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 400px;
+}
+
+@keyframes slideDown {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    20%, 80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

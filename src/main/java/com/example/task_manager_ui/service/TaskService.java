@@ -40,12 +40,6 @@ public class TaskService {
         return convertToDto(task);
     }
 
-    public List<TaskDto> findAllTasks() {
-        return taskRepository.findAll().stream()
-                .map(this::convertToDto)
-                .toList();
-    }
-
     public void changeStatusToComplete(long id) {
         Task task = taskRepository.findById(id).get();
 

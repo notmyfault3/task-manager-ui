@@ -376,10 +376,8 @@
     color: #6c757d;
     font-size: 1.5rem;
     font-weight: 500;
-    background-color: rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .no-tasks-message p {
@@ -391,4 +389,42 @@
     font-size: 2.5rem;
     display: block;
     margin-bottom: 15px;
+}
+
+.success-list {
+    position: fixed;
+    top: 85px;
+    right: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    z-index: 9999;
+}
+
+.success-message {
+    background-color: rgba(0, 230, 0, 0.6);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 153, 51, 0.6);
+    margin-bottom: 5px;
+    opacity: 0;
+    transform: translateY(-20px);
+    font-weight: bold;
+    font-size: 1rem;
+    animation: slideDown 10s forwards;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 400px;
+}
+
+@keyframes slideDown {
+    0%, 100% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    20%, 80% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
