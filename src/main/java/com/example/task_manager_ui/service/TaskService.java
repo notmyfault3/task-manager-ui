@@ -7,7 +7,7 @@ import com.example.task_manager_ui.model.TaskDto;
 import com.example.task_manager_ui.repository.TaskRepository;
 import com.example.task_manager_ui.utils.DateTimeHelper;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,8 +16,11 @@ import java.util.List;
 @AllArgsConstructor
 public class TaskService {
 
+    public static final int PAGE_SIZE = 12;
+
+    private static final String DUE_DATE = "dueDate";
+
     private final TaskRepository taskRepository;
-    private final String dueDate = "dueDate";
 
     public TaskDto saveTask(TaskDto taskDto) {
         Task task = new Task();
@@ -51,29 +54,43 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 
-    public List<TaskDto> findSortedTasks(String priority, String direction) {
-        Sort sort = Sort.by(Sort.Direction.fromString(direction), dueDate);
+    public Page<TaskDto> findSortedTasks(String priority, String direction, int page) {
+        Sort sort = Sort.by(Sort.Direction.fromString(direction), DUE_DATE);
+        Pageable pageable = PageRequest.of(page - 1, PAGE_SIZE, sort);
 
         if (priority != null) {
             Priority enumPriority = Priority.valueOf(priority.toUpperCase());
+            Page<Task> taskPage = taskRepository.findByStatusAndPriority(Status.NEW, enumPriority, pageable);
 
-            return taskRepository.findByStatusAndPriority(Status.NEW, enumPriority, sort).stream()
+            List<TaskDto> retrievedTasks = taskPage.getContent()
+                    .stream()
                     .map(this::convertToDto)
                     .toList();
-        }
 
-        return taskRepository.findByStatus(Status.NEW, sort).stream()
+            return new PageImpl<>(retrievedTasks, pageable, taskPage.getTotalElements());
+        }
+        Page<Task> taskPage = taskRepository.findByStatus(Status.NEW, pageable);
+
+        List<TaskDto> retrievedTasks = taskPage.getContent()
+                .stream()
                 .map(this::convertToDto)
                 .toList();
+
+        return new PageImpl<>(retrievedTasks, pageable, taskPage.getTotalElements());
     }
 
-    public List<TaskDto> findTasksByTitle(String query) {
-        Sort sort = Sort.by(Sort.Direction.fromString("asc"), dueDate);
-        List<Task> foundTasks = taskRepository.findByStatusAndTitleStartsWithIgnoreCase(Status.NEW, query, sort);
+    public Page<TaskDto> findTasksByTitle(String query, int page) {
+        Sort sort = Sort.by(Sort.Direction.fromString("asc"), DUE_DATE);
+        Pageable pageable = PageRequest.of(page - 1, PAGE_SIZE, sort);
 
-        return foundTasks.stream()
+        Page<Task> taskPage = taskRepository.findByStatusAndTitleStartsWithIgnoreCase(Status.NEW, query, pageable);
+
+        List<TaskDto> retrievedTasks = taskPage.getContent()
+                .stream()
                 .map(this::convertToDto)
                 .toList();
+
+        return new PageImpl<>(retrievedTasks, pageable, taskPage.getTotalElements());
     }
 
     private TaskDto convertToDto(Task task) {

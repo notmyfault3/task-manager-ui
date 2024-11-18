@@ -428,3 +428,65 @@
         transform: translateY(0);
     }
 }
+
+/* Загальні стилі для контейнера */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Стиль для кнопок */
+.page-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: white;
+    color: #333;
+    border: 3px solid #444;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Ефекти при наведенні */
+.page-link:hover {
+    color: #333;
+    background-color: #f4f4f4;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Стиль для активної кнопки */
+.page-link.active {
+    background-color: #a9a9a9;
+    color: #333;
+    border-color: #444;
+    pointer-events: none;
+    cursor: default;
+}
+
+.page-link:active {
+    transform: translateY(2px);
+}
+
+/* Стиль для лівої та правої кнопки зі стрілками */
+.page-link:first-child,
+.page-link:last-child {
+    font-size: 18px;
+}
+
+/* Стиль для три крапки */
+.pagination-dots {
+    font-size: 24px;
+    color: #666;
+    padding: 10px;
+    letter-spacing: 3px;
+}
